@@ -60,6 +60,7 @@ def public(project):
     for proposal,data in zip(project.proposals,value["proposals"]):
         data["approval_digest"]=proposal.approval_digest()
         data.pop("snapshots",None)
+    value["proposal_previews"]={p.id:[a.model_dump(mode="json") for a in p.snapshots] for p in project.proposals if p.status=="APPLIED"}
     value["spec_digest"]=digest(project.spec.model_dump()) if project.spec else None
     return value
 

@@ -1,0 +1,59 @@
+{
+  "invariants": [
+    {
+      "id": "passengers",
+      "kind": "NUMBER",
+      "description": "Fourteen passengers are waiting.",
+      "start": 9,
+      "end": 13.286,
+      "value": "14",
+      "evidence": "There are fourteen passengers still waiting. We cannot leave them in the dark."
+    },
+    {
+      "id": "name",
+      "kind": "REVEAL",
+      "description": "The courier first introduces herself as Mira at 33 seconds.",
+      "start": 33,
+      "end": 35.366,
+      "value": "Mira",
+      "evidence": "My name is Mira. Tell them we're coming."
+    },
+    {
+      "id": "bell",
+      "kind": "SOUND",
+      "description": "The warning bell tells the courier when to go.",
+      "start": 25,
+      "end": 28.8,
+      "value": "bell",
+      "aliases": [
+        "chime"
+      ],
+      "evidence": "Three audible bell strikes at 25, 26 and 27 seconds."
+    },
+    {
+      "id": "speech",
+      "kind": "DIALOGUE",
+      "description": "The courier speaks about the waiting passengers.",
+      "start": 9,
+      "end": 13.286,
+      "value": "dialogue",
+      "evidence": "There are fourteen passengers still waiting. We cannot leave them in the dark."
+    },
+    {
+      "id": "platform-sign",
+      "kind": "CLUE",
+      "description": "Platform 7 is the destination.",
+      "start": 32,
+      "end": 40,
+      "value": "PLATFORM 7",
+      "box": {
+        "x": 0.640625,
+        "y": 0.7,
+        "width": 0.26953125,
+        "height": 0.11944444
+      },
+      "evidence": "The composed wayfinding sign is visible throughout the signal shot."
+    }
+  ],
+  "notes": "Human-reviewed known-answer reference for this original film. The extraction output is retained separately; this reference is not presented as unedited model output."
+}

@@ -1,6 +1,6 @@
 # Accord walkthrough
 
-Actual hosted screens; waiting time shortened; original fictional scene with deliberately introduced issues.
+Actual hosted screen recordings; waiting time shortened; original AI-assisted animation with deliberately introduced test issues.
 
 ## 00-welcome
 
@@ -8,32 +8,36 @@ Meet Accord. Keep the story intact across every version.
 
 ## 01-sources
 
-Start with your original film and add the versions you want to review. Here we have Spanish subtitles, accessible captions, audio description, a dub transcript, and two shorter edits linked to the Spanish version.
+This is The Last Lantern, an original animated short made for this demonstration. A courier brings a light to a mountain station, where fourteen passengers are waiting. Here are the subtitles, accessible captions, dub transcript, and linked recap and trailer.
 
 ## 02-spec
 
-Accord reads the film and prepares story notes: important facts, names, sounds, dialogue and visual clues. Review these notes against your original, make any adjustments, then approve them. They become the reference for your versions.
+Accord reads the film and prepares story notes. The reviewer checks the passenger count, the warning bell, when the courier introduces herself, and the platform sign. Approved notes become the reference for each version.
 
 ## 03-findings
 
-Review brings each issue back to the moment it matters. Here, the original says fourteen survivors, but the Spanish recap says four. Play the scene and see the subtitle alongside the original evidence.
+The Spanish subtitle says four passengers instead of fourteen. Accord brings the issue back to the original moment, with the source evidence beside the film.
 
 ## 04-defects
 
-The same problem has carried into the trailer. Elsewhere, a name appears too early, captions miss a door-lock sound, audio description interrupts dialogue, and a subtitle covers an important code. Accord brings these issues together so they are easier to work through.
+That error also appears in the recap and trailer. Other test versions miss the warning bell, reveal the courier’s name early, overlap dialogue with audio description, or cover the platform sign.
 
 ## 05-proposal
 
-Choose the issues you want to address and ask for suggested changes. Compare the original and proposed versions side by side. You can edit or reject a suggestion before applying it. In this demonstration, the reviewer adjusts the sound caption and subtitle placement before approving.
+Ask for suggested changes, then watch the difference. Before and After preview the actual caption text, timing and placement on the film. Nothing is applied until the reviewer approves.
+
+## 05b-editor
+
+Adjust a suggestion with ordinary text and timing fields. Move a caption away from the sign. The connected versions show which files the proposal changes. The reviewer stays in control.
 
 ## 06-verified
 
-Accord applies the approved changes and checks the updated versions again. When those checks pass, your versions are ready to download together with their review history.
+After approval, Accord applies the reviewed changes and checks the updated tracks again. This run has no remaining findings. The corrected versions and review history are ready to download.
 
 ## 07-evidence
 
-Project history keeps the decisions and changes together. You can revisit what happened and open the supporting details when you need them. Gemini, Google ADK and ClickHouse support the review behind the scenes.
+The investigation uses Gemini, Google ADK and the official ClickHouse MCP server. History retains the evidence and decisions. A separate original lighthouse scene was also tested, alongside clean controls. These are bounded demonstration results.
 
 ## 08-rollback
 
-Need to go back? Undo the changes to restore the previous versions, including the linked recap and trailer. This walkthrough uses an original fictional scene with deliberately introduced issues. Waiting time has been shortened. Accord. Keep the story intact.
+Undo restores the previous versions, including the recap and trailer. This recording uses the actual hosted app, original AI-assisted animation, and deliberately introduced test issues. Waiting time has been shortened. Accord. Keep the story intact.

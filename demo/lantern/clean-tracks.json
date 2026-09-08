@@ -1,0 +1,120 @@
+[
+  {
+    "name": "Spanish subtitles",
+    "kind": "SUBTITLE",
+    "locale": "es",
+    "cues": [
+      {
+        "id": "s1",
+        "start": 9,
+        "end": 15,
+        "text": "Hay 14 pasajeros esperando."
+      },
+      {
+        "id": "s2",
+        "start": 17,
+        "end": 23,
+        "text": "Lleva la luz al andén 7."
+      },
+      {
+        "id": "s3",
+        "start": 33,
+        "end": 39,
+        "text": "Me llamo Mira. Ya vamos.",
+        "box": {
+          "x": 0.15,
+          "y": 0.1,
+          "width": 0.7,
+          "height": 0.12
+        }
+      },
+      {
+        "id": "s4",
+        "start": 42,
+        "end": 46,
+        "text": "Ahora pueden vernos."
+      }
+    ]
+  },
+  {
+    "name": "Accessible captions",
+    "kind": "SDH",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "c1",
+        "start": 1,
+        "end": 4,
+        "text": "[Footsteps in rain]"
+      },
+      {
+        "id": "c2",
+        "start": 9,
+        "end": 15,
+        "text": "14 passengers are still waiting."
+      },
+      {
+        "id": "c3",
+        "start": 17,
+        "end": 23,
+        "text": "Take the lantern to platform 7."
+      },
+      {
+        "id": "bell",
+        "start": 25,
+        "end": 28.8,
+        "text": "[Bell rings three times]"
+      },
+      {
+        "id": "c4",
+        "start": 33,
+        "end": 39,
+        "text": "My name is Mira."
+      },
+      {
+        "id": "c5",
+        "start": 42,
+        "end": 46,
+        "text": "They can see us now."
+      }
+    ]
+  },
+  {
+    "name": "Dub transcript",
+    "kind": "DUB",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "d1",
+        "start": 2,
+        "end": 5,
+        "text": "The courier arrives."
+      },
+      {
+        "id": "d2",
+        "start": 9,
+        "end": 15,
+        "text": "14 passengers are still waiting."
+      },
+      {
+        "id": "d3",
+        "start": 33,
+        "end": 39,
+        "text": "My name is Mira."
+      }
+    ]
+  },
+  {
+    "name": "Audio description",
+    "kind": "AD",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "a1",
+        "start": 4,
+        "end": 7,
+        "text": "A courier shelters a lantern from the rain."
+      }
+    ]
+  }
+]

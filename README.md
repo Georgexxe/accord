@@ -4,7 +4,7 @@
 
 [Open the review studio](https://storyparity-cus2bs7tpq-uc.a.run.app) · Reviewer access key required for project data.
 
-[Watch the 1:59 walkthrough](https://github.com/Georgexxe/accord/releases/download/v2.1.0/Accord-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
+[Watch the 1:56 walkthrough](https://github.com/Georgexxe/accord/releases/download/v2.2.0/Accord-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
 
 ![Actual hosted Accord evidence player showing an original synthetic demo](demo/studio.png)
 
@@ -31,7 +31,13 @@ Accord is a review studio for narrative integrity across localized subtitles, SD
 | Audio-description collision | Exact temporal overlap with approved dialogue intervals |
 | Subtitle/clue collision | Overlap between supplied normalized subtitle placement and approved on-screen clue region |
 
-The supplied `demo/` contains a 60-second original synthetic scene, Google Cloud-generated speech, procedural door-lock audio, deliberately defective tracks and provenance. These are evaluation inputs. They are not fabricated model output or claims of general accuracy.
+The primary demo is **The Last Lantern**, a 48-second original anime-style short in `demo/lantern/`. **Harbor Lights**, a separate 16-second scene in `demo/harbor/`, provides an independent test. Both use Google Veo, Google Cloud speech, original scripts and synthesized sound. Each package includes clean controls and deliberately defective tracks. These are evaluation inputs, not claims of general translation accuracy. The earlier procedural demo remains as historical test material.
+
+The review interface includes before/after playback, caption text/timing/placement controls, and a connected-version view. Proposed changes stay separate until approved; applied previews use the retained original version. Dub and audio-description previews display text over the original audio, and do not synthesize replacement audio.
+
+Run `node scripts/test_review.cjs` after installing frontend dependencies for the six focused React interaction tests. Regeneration scripts are `animate_lantern.py`, `assemble_lantern.py` and `build_animation_demo.py`; install `scripts/requirements-demo.txt` alongside the backend requirements, and FFmpeg. Google generation requires a billed, authorised Cloud project.
+
+See [animation provenance and regeneration](demo/ANIMATION-PROVENANCE.md).
 
 ## Architecture
 

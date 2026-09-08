@@ -1,2 +1,6 @@
 # Optional original-media regeneration; application requirements are separate.
 Pillow==12.3.0
+
+# Original Veo film assembly and soundtrack synthesis
+numpy==2.5.3
+requests>=2.32.0,<3

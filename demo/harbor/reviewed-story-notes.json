@@ -1,0 +1,35 @@
+{
+  "invariants": [
+    {
+      "id": "flashes",
+      "kind": "NUMBER",
+      "description": "Two flashes are the signal for home.",
+      "start": 2,
+      "end": 4.705,
+      "value": "2",
+      "evidence": "Two flashes. That's the signal for home."
+    },
+    {
+      "id": "speech",
+      "kind": "DIALOGUE",
+      "description": "The keeper describes the signal.",
+      "start": 2,
+      "end": 4.705,
+      "value": "dialogue",
+      "evidence": "Two flashes. That's the signal for home."
+    },
+    {
+      "id": "chimes",
+      "kind": "SOUND",
+      "description": "Two signal chimes accompany the shutter.",
+      "start": 8,
+      "end": 9.8,
+      "value": "chime",
+      "aliases": [
+        "bell"
+      ],
+      "evidence": "Two composed chimes at 8 and 8.8 seconds."
+    }
+  ],
+  "notes": "Independent second scene, human-reviewed known-answer reference."
+}

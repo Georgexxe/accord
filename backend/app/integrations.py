@@ -191,6 +191,8 @@ For REVEAL use start as the earliest allowed reveal. For SOUND value is a short 
         if not os.getenv("GOOGLE_CLOUD_PROJECT"):
             raise RuntimeError("Google Cloud project is not configured")
         ledger = []
+        from .workflow import bind_investigated_versions
+        source_hashes={a.id:a.content_hash() for a in project.assets}
         wanted = [f.model_dump() for f in project.findings if f.id in finding_ids]
         if not wanted or len(wanted) != len(finding_ids):
             raise ValueError("Select current findings to investigate")
@@ -204,6 +206,8 @@ For REVEAL use start as the earliest allowed reveal. For SOUND value is a short 
         async def query_cues() -> dict:
             """Read all current project cue versions and derivative lineage from official ClickHouse MCP."""
             assets, trace = await analytics.snapshot(project, snapshot)
+            if {a.id:a.content_hash() for a in assets} != source_hashes:
+                raise ValueError("Indexed versions differ from the investigated project")
             ledger.append(trace)
             return {"assets": [a.model_dump() | {"base_hash": a.content_hash()} for a in assets]}
 
@@ -225,6 +229,7 @@ For REVEAL use start as the earliest allowed reveal. For SOUND value is a short 
             try:
                 candidate=Proposal.model_validate_json(proposal_json)
                 candidate.spec_digest=project.approved_spec_digest
+                bind_investigated_versions(project,candidate,source_hashes)
                 remaining=preview_proposal(project,candidate)
                 result={"valid":True,"preview_only":True,"remaining_findings":[f.model_dump(exclude={"id"}) for f in remaining]}
             except ValueError as exc:
@@ -274,4 +279,6 @@ Write your rationale for a film editor in clear everyday language. Keep tool nam
         proposal.approved_digest = proposal.approved_by = None
         proposal.snapshots = []
         proposal.result_hashes = {}
+        bind_investigated_versions(project,proposal,source_hashes)
+        ledger.append({"tool":"bind_investigated_versions","asset_count":len({c.asset_id for c in proposal.changes})})
         return proposal, ledger

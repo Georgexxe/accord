@@ -2,6 +2,21 @@
 from .domain import Asset, Project, Proposal, digest, presentation_errors
 
 
+def bind_investigated_versions(project: Project, proposal: Proposal, source_hashes: dict[str, str]):
+    """Bind model-authored edits to the exact versions captured before investigation.
+
+    Only the investigation boundary calls this; user edits and apply still validate
+    their supplied hashes. Never rebase onto content changed during investigation.
+    """
+    for change in proposal.changes:
+        if change.asset_id not in source_hashes:
+            raise ValueError("Unknown investigated asset")
+        if project.asset(change.asset_id).content_hash() != source_hashes[change.asset_id]:
+            raise ValueError("Asset changed during investigation")
+    for change in proposal.changes:
+        change.base_hash = source_hashes[change.asset_id]
+
+
 def validate_proposal(project: Project, proposal: Proposal) -> list[Asset]:
     if proposal.status != "PROPOSED":
         raise ValueError("Only an unapproved proposal can be applied")

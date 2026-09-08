@@ -185,3 +185,14 @@ def test_malformed_srt_is_rejected_without_partial_import(client, payload):
         files={"file": ("malformed.srt", payload)})
     assert response.status_code == 422
     assert api.store.get(project["id"]).assets == []
+
+def test_applied_preview_exposes_original_cues_without_changing_proposal_contract():
+    from backend.app.workflow import apply
+    project, proposal = repair_case()
+    originals = {a.id:a.model_dump(mode="json") for a in project.assets}
+    apply(project, proposal, proposal.approval_digest(), "test reviewer")
+    data = api.public(project)
+    assert "snapshots" not in data["proposals"][0]
+    assert "preview_assets" not in data["proposals"][0]
+    for asset in data["proposal_previews"][proposal.id]:
+        assert asset == originals[asset["id"]]

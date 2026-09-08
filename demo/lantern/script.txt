@@ -1,0 +1,9 @@
+The Last Lantern — original fictional animated scene. All timing is in seconds.
+9.000–13.286: spoken English dialogue: There are fourteen passengers still waiting. We cannot leave them in the dark.
+17.000–20.723: spoken English dialogue: Then take the lantern to platform seven. Go when the bell rings.
+33.000–35.366: spoken English dialogue: My name is Mira. Tell them we're coming.
+42.000–43.331: spoken English dialogue: They can see us now.
+0–8: A courier carrying a lantern runs through a rainy mountain station. Her name is not spoken or shown before 33 seconds.
+25–28.8: A warning bell rings three times. This is the signal for the courier to carry the lantern to the platform.
+32–40: A visible wayfinding sign reads PLATFORM 7, in normalized frame region x=.640625, y=.7, width=.26953125, height=.11944444.
+40–48: The train arrives; the lantern has guided it home.

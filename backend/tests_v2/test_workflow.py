@@ -182,3 +182,24 @@ def test_preview_rejects_stale_proposal_without_mutation():
         preview_proposal(project, proposal)
     assert project.model_dump() == before_project
     assert proposal.model_dump() == before_proposal
+
+
+def test_model_version_metadata_is_bound_to_investigated_source_only():
+    from backend.app.workflow import bind_investigated_versions
+    project, proposal = repair_case()
+    versions = {a.id:a.content_hash() for a in project.assets}
+    proposal.changes[0].base_hash = "model-copy-error"
+    bind_investigated_versions(project,proposal,versions)
+    assert proposal.changes[0].base_hash == versions[proposal.changes[0].asset_id]
+    validate_proposal(project,proposal)
+
+
+def test_investigation_binding_refuses_to_rebase_a_later_edit():
+    from backend.app.workflow import bind_investigated_versions
+    project, proposal = repair_case()
+    versions = {a.id:a.content_hash() for a in project.assets}
+    project.asset(proposal.changes[0].asset_id).cues[0].text = "Later author edit"
+    before = proposal.model_dump()
+    with pytest.raises(ValueError,match="changed during investigation"):
+        bind_investigated_versions(project,proposal,versions)
+    assert proposal.model_dump() == before

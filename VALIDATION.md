@@ -44,3 +44,18 @@ Single-reviewer bearer authentication and a single persistent ClickHouse VM suit
 The application now uses Accord throughout its customer interface, page metadata and delivery exports. The welcome screen, labels and prompts were simplified; detailed diagnostics remain in project history. The renamed repository is https://github.com/Georgexxe/accord. Existing infrastructure identifiers remain compatible.
 
 All 61 backend tests passed. Desktop/mobile sign-in checks passed with no JavaScript errors or horizontal overflow. Fresh production captures verify the reviewed repair and rollback with the rebranded original film; its audio and story timecodes were retained. The replacement walkthrough is 1:59 (119.374 seconds), uses nine fresh hosted screens and new narration, and decodes completely without errors. Earlier evidence above describes the prior release.
+
+
+## Original animation and review upgrade — 8 September 2026
+
+The Last Lantern (48 seconds) and Harbor Lights (16 seconds) replace the geometric scene as the current demo. Original scripts, Google Veo animation, Google speech and synthesized sound are documented in demo/ANIMATION-PROVENANCE.md. AI-generated motion has visual continuity limitations; no third-party film or music was used.
+
+The interface adds Before/After caption playback, editable text/timing/placement, and connected-version impact counts. Applied proposals retain a preview baseline. Approval is disabled while the editor has unsaved changes. Dub and audio-description previews are text previews over original audio, not synthesized replacement audio.
+
+70 backend tests and six React interaction tests passed. Staging and production completed real Gemini extraction, ADK/ClickHouse investigation, explicit reviewer correction, verified readback and rollback. The Last Lantern produced seven seeded findings, then zero after reviewed repair, and seven after Undo. Harbor Lights produced two, zero and two respectively. These are bounded fixture results, not an accuracy benchmark or unattended repair claim.
+
+Acceptance exposed two failures that were fixed before promotion: model-supplied source hashes are now bound to the investigation snapshot only while that snapshot is still current; expired Firestore transactions receive a narrow fresh-transaction retry that rechecks revision conflicts. Other write failures are not silently retried.
+
+Production revision: storyparity-00005-s6h. Tested and promoted image digest: sha256:163eac6f235aaa0ba96ad5b9492432c1244c22f7303d10c9f7f1845ad9d48f24. The Cloud Build runtime CRITICAL vulnerability gate passed. Production test evidence remains private under runtime/lantern; the public source provides the repeatable runner and original fixtures.
+
+The replacement walkthrough is 116.958 seconds (1:56), 6,284,559 bytes. Full FFmpeg decoding passed with no errors. It uses actual hosted screen recordings, original animation and narrated explanations; shortened waiting time is disclosed.

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Spanish subtitles",
+    "kind": "SUBTITLE",
+    "locale": "es",
+    "cues": [
+      {
+        "id": "s1",
+        "start": 2,
+        "end": 6,
+        "text": "3 destellos. La señal de regreso."
+      },
+      {
+        "id": "s2",
+        "start": 10,
+        "end": 15,
+        "text": "Mantén la luz hasta que lleguen."
+      }
+    ]
+  },
+  {
+    "name": "Accessible captions",
+    "kind": "SDH",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "c1",
+        "start": 2,
+        "end": 6,
+        "text": "2 flashes. The signal for home."
+      },
+      {
+        "id": "bell",
+        "start": 8,
+        "end": 9.8,
+        "text": "[Two chimes]"
+      },
+      {
+        "id": "c2",
+        "start": 10,
+        "end": 15,
+        "text": "Keep the light steady."
+      }
+    ]
+  },
+  {
+    "name": "Dub transcript",
+    "kind": "DUB",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "d1",
+        "start": 2,
+        "end": 6,
+        "text": "2 flashes. The signal for home."
+      }
+    ]
+  },
+  {
+    "name": "Audio description",
+    "kind": "AD",
+    "locale": "en",
+    "cues": [
+      {
+        "id": "a1",
+        "start": 2,
+        "end": 4,
+        "text": "A light sweeps the harbor."
+      }
+    ]
+  }
+]

@@ -7,6 +7,23 @@ from pathlib import Path
 from .domain import Project
 
 
+def commit_with_fresh_transaction(commit, transaction_factory):
+    """Retry only Firestore's expired-transaction rejection, with a new transaction.
+
+    The callback rechecks the expected revision on every attempt. Other invalid
+    requests and optimistic conflicts must propagate without retrying.
+    """
+    from google.api_core.exceptions import InvalidArgument
+    for attempt in range(3):
+        try:
+            return commit(transaction_factory())
+        except InvalidArgument as exc:
+            message=str(exc).lower()
+            expired='transaction' in message and ('expired' in message or 'no longer valid' in message)
+            if not expired or attempt == 2:
+                raise
+
+
 class Conflict(Exception):
     pass
 
@@ -33,7 +50,7 @@ class Store:
         else:
             with self.connect() as db:
                 values = [x[0] for x in db.execute("SELECT body FROM projects ORDER BY rowid DESC")]
-        return [{"id": p.id, "title": p.title, "status": p.status, "revision": p.revision} for p in map(Project.model_validate_json, values)]
+        return [{"id": p.id, "title": p.title, "status": p.status, "revision": p.revision} for p in sorted(map(Project.model_validate_json, values), key=lambda p:p.created_at, reverse=True)]
 
     def get(self, project_id):
         if self.cloud:
@@ -66,7 +83,7 @@ class Store:
                 if actual != expected:
                     raise Conflict("Project changed; reload before retrying")
                 transaction.set(ref, {"revision": next_revision, "body": body})
-            commit(self.db.transaction())
+            commit_with_fresh_transaction(commit,self.db.transaction)
         else:
             with self.connect() as db:
                 db.execute("BEGIN IMMEDIATE")
