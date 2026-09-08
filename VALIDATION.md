@@ -1,0 +1,30 @@
+# StoryParity validation record
+
+Date: 8 September 2026. These are measured acceptance results on bounded synthetic inputs, not population-level accuracy claims.
+
+## Reproducible checks
+
+- Python: **61 passed**, using `python -m pytest -q` against the active `backend/tests_v2` suite, including complete/incomplete/stale proposal previews with full state immutability assertions.
+- Scope: five known-answer detector classes and clean controls, persistent state, stale revisions, spec/proposal tampering, exact cue IDs, multi-asset repair and rollback, authorization, failed cloud operations and verification recovery.
+- Parser regressions: malformed timestamps/blocks rejected; millisecond rounding carries into the next minute/hour; BOM, CRLF, multiline SRT, WebVTT named cues/settings/notes supported.
+- Browser: desktop and 390-pixel mobile checks passed with no JavaScript errors or horizontal body overflow. Evidence player seek/overlay checks used explicitly labelled synthetic browser interception; these are UI tests, not live cloud evidence.
+
+## Actual service evidence
+
+The dedicated ClickHouse instance reported version 26.3.12.3. The reader account returned `readonly=1`. Official `mcp-clickhouse` 0.6.0 `run_query` executed an impossible predicate and returned zero rows. Vertex Gemini extracted candidate invariants from the original video/audio; Google ADK called actual MCP evidence tools. Actual `gemini-embedding-001` vectors were ranked using ClickHouse `cosineDistance` through MCP.
+
+The first full live run used the 60-second original synthetic scene and four tracks. It detected seven findings across NUMBER, REVEAL, SOUND, DIALOGUE and CLUE. A test reviewer approved the exact extracted spec and actual model proposal; apply/reindex/MCP readback returned VERIFIED with zero remaining findings. Export contained four SRT tracks. Rollback restored seven findings. Firestore, private Cloud Storage, Vertex and ClickHouse were real services. This automated acceptance reviewer is not a professional linguistic evaluation.
+
+The separate live semantic investigation passed with seven proposed changes, actual semantic tool use and five recorded trace events. Service output, SQL, actual usage metadata and proposal JSON are retained privately under `runtime/`; credentials are excluded. The public source includes runners and original inputs, not private account data.
+
+## Hosted release gate
+
+Six-track remote acceptance includes parent-linked recap and trailer tracks. The first hosted pass exposed a rounded dialogue boundary in the raw extraction. The test reviewer replaced dialogue intervals with measured synthetic-source annotations and approved the proper-name alias Mara. An initial proposed SDH insertion exceeded the configured reading speed and was rejected before mutation. A later short equivalent caption remained a REVIEW item because the approved aliases did not include that wording; the test reviewer explicitly approved `door locks, beeps`. Raw model output remains separate from these reference-review decisions.
+
+The agent now has a read-only preview tool that checks an isolated candidate for presentation errors and remaining configured findings. It never saves, applies, approves, or claims an MCP-verified result. Hosted final acceptance will be recorded below after the revised run.
+
+## Practical limits
+
+Numeric checks recognize digits, not every written number in every language. Sound equivalence depends on approved aliases. A missing or incorrect approved fact limits all downstream checks. Placement checks require supplied boxes. Linear timeline offsets support trims; montage segments require separate mappings. VERIFIED means the current configured checks passed, not that the film is certified accessible or perfectly translated.
+
+Single-reviewer bearer authentication and a single persistent ClickHouse VM suit this release; multi-tenant access, high availability and broad human-labelled multilingual benchmarks remain future work. Cloud charges continue until resources are stopped or removed; see deployment instructions.

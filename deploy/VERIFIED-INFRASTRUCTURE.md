@@ -1,0 +1,58 @@
+# Verified live infrastructure — 8 September 2026
+
+Provisioned with explicit user approval of the resource stack and ongoing charges:
+
+| Resource | Identifier |
+| --- | --- |
+| Project | `project-ca8af2fe-5aff-496a-bd8` |
+| VM | `storyparity-clickhouse`, `us-central1-a`, e2-medium, 20 GiB persistent disk |
+| VPC / subnet | `storyparity` / `storyparity`, `10.88.0.0/26` |
+| Private ClickHouse | `10.88.0.2:8123`, HTTP on restricted network |
+| Database version | `26.3.12.3` |
+| Databases | `storyparity`, `storyparity_staging` |
+| Runtime service account | `storyparity-runtime@project-ca8af2fe-5aff-496a-bd8.iam.gserviceaccount.com` |
+| VM service account | `storyparity-clickhouse@project-ca8af2fe-5aff-496a-bd8.iam.gserviceaccount.com` |
+| Private bucket | `project-ca8af2fe-5aff-496a-bd8-storyparity-media` |
+| Writer secret | `storyparity-clickhouse-writer` |
+| Reader secret | `storyparity-clickhouse-reader` |
+| Reviewer secret | `storyparity-reviewer-token` |
+
+Passwords are random, generated in process memory, stored in Secret Manager, and never included in this repository. Reader username is `storyparity_reader`; writer is `storyparity_writer`.
+
+VM bootstrap emitted `STORYPARITY_CLICKHOUSE_READY_DATABASES_AND_READER_VERIFIED` at 14:26:49 UTC. The local IAP tunnel was verified on loopback port 18123 with `/ping` returning `Ok.`.
+
+`check_connections.py`, executed through `local_cloud.py`, exited 0 and verified:
+
+- Server version `26.3.12.3` and selected database `storyparity_staging`.
+- Server-side readonly setting equals `1` for the reader.
+- Official `mcp-clickhouse` package `0.6.0`, `run_query`, executed `SELECT 1 AS value WHERE 1 = 0` against the real server and returned zero rows.
+- Measured initial subprocess/query duration: 18,526 ms over IAP, including MCP startup. This is a connectivity observation, not a latency benchmark.
+
+## IAM-private staging release
+
+Staging application deployed after the main agent's real Vertex/MCP investigation and regression checks:
+
+- URL: `https://storyparity-staging-cus2bs7tpq-uc.a.run.app` (Google IAM authentication required).
+- Current revision: `storyparity-staging-00003-v2k`, ready at 15:08:47 UTC.
+- Current Cloud Build: `5a658ca3-e8e9-4d00-8a96-b05f40452b8d`, SUCCESS, including Trivy's fixable-critical vulnerability gate.
+- Current image digest: `sha256:6560540097a623092af3d5f284bcfd5cde42231511510dcf15aa38a461c47f01`; revision deploys the digest directly.
+- This staging update adds read-only proposal validation for the investigator; production remains on the prior image pending hosted acceptance.
+- Previous rollback revision: `storyparity-staging-00002-jws` (build `79dbba3a-cc00-47ec-814e-18223193cbf9`).
+- Health ready, version 2.0.0; absent reviewer credential rejected with 401; authenticated project read and frontend entry both return 200.
+- Service IAM policy has no public invoker grant.
+
+Full remote product workflow and browser checks remain the main agent's release gate. See `READINESS.md` for stop/restart, release and rollback procedures.
+
+## Public production release
+
+After explicit user approval of public app access, final01 was deployed to production:
+
+- Public URL: `https://storyparity-cus2bs7tpq-uc.a.run.app`.
+- Revision: `storyparity-00001-54v`, ready at 15:02:23 UTC.
+- Image digest: `sha256:cc64774e495c1aad5f78948555f18fd4c004fe76b552a3c85354f73778ea7545`.
+- Production Firestore collection: `storyparity_projects`; ClickHouse database: `storyparity`.
+- Cloud Run invocation is public; application bearer authentication remains enforced.
+- Without a Google identity token: page 200, health ready 200, private API without reviewer credential 401, private API with reviewer credential 200.
+- No production data was seeded during deployment.
+
+`release.py --public` supports explicitly approved public releases. Omit the flag for IAM-private staging. Releasing production without `--public` makes its invocation private again.

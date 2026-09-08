@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "start": 3,
+    "end": 7,
+    "text": "La esclusa est\u00e1 sellada."
+  },
+  {
+    "id": "2",
+    "start": 10,
+    "end": 14,
+    "text": "Hay 4 supervivientes."
+  },
+  {
+    "id": "3",
+    "start": 25,
+    "end": 29,
+    "text": "Soy la capitana Mara."
+  },
+  {
+    "id": "4",
+    "start": 40,
+    "end": 44,
+    "text": "No la abras."
+  },
+  {
+    "id": "5",
+    "start": 50,
+    "end": 55,
+    "text": "Usa el c\u00f3digo de la pantalla.",
+    "box": {
+      "x": 0.3,
+      "y": 0.7,
+      "width": 0.4,
+      "height": 0.15
+    }
+  }
+]

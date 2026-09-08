@@ -1,0 +1,8 @@
+ORIGINAL FICTIONAL MASTER — PROTOCOL KEPLER-9. Clip is 60 seconds.
+Only spoken dialogue and visible evidence establish story facts. Speaker is anonymous until 30 seconds.
+03s: The airlock is sealed. We have one chance.
+10s: There are fourteen survivors. Display reads 14 CONFIRMED (09–16s).
+20s: Metallic door-lock clacks and two warning beeps. AIRLOCK LOCKED appears (20–24s). This sound explains why escape fails and belongs in SDH.
+30s: I am Captain Mara. Her name must not appear in downstream tracks before this reveal.
+40s: Do not open it.
+50s: Use the code on the screen. ACCESS CODE: 7319 appears between 50–55s in normalized box x=.30,y=.70,width=.40,height=.15. Subtitle placement must not cover it.

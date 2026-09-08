@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "start": 3,
+    "end": 6.053,
+    "text": "The airlock is sealed. We have one chance."
+  },
+  {
+    "id": "2",
+    "start": 10,
+    "end": 13,
+    "text": "There are fourteen survivors."
+  },
+  {
+    "id": "3",
+    "start": 30,
+    "end": 33,
+    "text": "I am Captain Mara."
+  },
+  {
+    "id": "4",
+    "start": 40,
+    "end": 43,
+    "text": "Do not open it."
+  },
+  {
+    "id": "5",
+    "start": 50,
+    "end": 53,
+    "text": "Use the code on the screen."
+  }
+]
