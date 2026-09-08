@@ -59,3 +59,5 @@ Acceptance exposed two failures that were fixed before promotion: model-supplied
 Production revision: storyparity-00005-s6h. Tested and promoted image digest: sha256:163eac6f235aaa0ba96ad5b9492432c1244c22f7303d10c9f7f1845ad9d48f24. The Cloud Build runtime CRITICAL vulnerability gate passed. Production test evidence remains private under runtime/lantern; the public source provides the repeatable runner and original fixtures.
 
 The replacement walkthrough is 116.958 seconds (1:56), 6,284,559 bytes. Full FFmpeg decoding passed with no errors. It uses actual hosted screen recordings, original animation and narrated explanations; shortened waiting time is disclosed.
+
+Walkthrough presentation update: removed the persistent footer and its padding at the user’s request. The clean video is 1440×1000, 116.958 seconds and 6,869,310 bytes; full decoding passed. Media provenance and shortened waiting time remain described in narration and accompanying documentation.
