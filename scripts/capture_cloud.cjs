@@ -16,6 +16,7 @@ const fs=require('node:fs');
  if(index<0)throw new Error('Capture project not found');
  await page.locator('nav button').nth(index).click();
  await page.getByRole('heading',{name:'Version inventory'}).waitFor();
+ await page.waitForFunction(()=>{const v=document.querySelector('video');return v&&v.readyState>=2;},undefined,{timeout:30000});
  fs.mkdirSync('runtime/demo-capture',{recursive:true});
  async function snap(name){await page.screenshot({path:'runtime/demo-capture/'+name+'.png',fullPage:false});}
  if(phase==='before'){
@@ -23,7 +24,7 @@ const fs=require('node:fs');
    await page.getByRole('button',{name:'02 Story specification'}).click();await snap('02-spec');
    await page.getByRole('button',{name:'03 Findings'}).click();
    await page.locator('video').evaluate(v=>{v.currentTime=10;v.pause();});
-   await page.locator('video').evaluate(v=>new Promise(resolve=>{if(v.readyState>=2)resolve();else v.onloadeddata=resolve;}));
+   await page.waitForFunction(()=>document.querySelector('video')?.readyState>=2,undefined,{timeout:20000});
    await snap('03-findings');
    await page.locator('.findings-grid').scrollIntoViewIfNeeded();await snap('04-defects');
  }else if(phase==='proposal'){
@@ -35,6 +36,10 @@ const fs=require('node:fs');
  }else{
    await page.getByRole('button',{name:'03 Findings'}).click();await snap('08-rollback');
  }
+ await page.setViewportSize({width:390,height:844});
+ const width=await page.evaluate(()=>document.body.scrollWidth);
+ if(width>390)throw new Error('Mobile horizontal overflow: '+width);
+ await page.screenshot({path:'runtime/demo-capture/mobile-'+phase+'.png',fullPage:true});
  if(errors.length)throw new Error(JSON.stringify(errors));
  await browser.close();console.log(JSON.stringify({phase,actualHostedUI:true,pageErrors:errors}));
 })().catch(e=>{console.error(e);process.exit(1)});

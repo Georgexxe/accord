@@ -19,14 +19,14 @@ FastAPI and React modular monolith. Transactional SQLite for local development w
 Bearer reviewer token from environment for the initial single-reviewer release; server-side comparison, no role supplied by browser. Token is entered by reviewer, kept in browser memory, never bundled. All private reads and writes authenticated. Content served through authenticated fetch/object URL. Strict Pydantic models, size/type limits, no remote URL fetch on ingest, no arbitrary user SQL, generated identifiers for paths, text rendered through React escaping. Explicit read-only developer fixtures live only in tests, never successful service fallbacks.
 
 ## Completion checklist
-- [ ] Real cloud/MCP connections and pinned dependencies
-- [ ] Durable project, asset, spec, finding and approval models
-- [ ] Ingestion and five detector classes
-- [ ] Gemini extraction and ADK investigation
-- [ ] Versioned approval/apply/reverify/rollback/export
-- [ ] Complete review UI
-- [ ] Known-answer, adversarial, integration and browser checks
-- [ ] Original media fixture and honest evaluation report
-- [ ] Deployment, license, README and submission materials
+- [x] Real cloud/MCP connections and pinned dependencies
+- [x] Durable project, asset, spec, finding and approval models
+- [x] Ingestion and five detector classes
+- [x] Gemini extraction and ADK investigation
+- [x] Versioned approval/apply/reverify/rollback/export
+- [x] Complete review UI
+- [x] Known-answer, adversarial, integration and browser checks
+- [x] Original media fixture and honest evaluation report
+- [x] Deployment, license, README and submission materials
 
 Security checklist reviewed before implementation: authentication/authorization are server-side; all uploads and mutations validate schemas; analytical reads are constrained and database read-only; credentials excluded from responses; mutation history persists; expensive run endpoints bounded.

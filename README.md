@@ -4,6 +4,10 @@
 
 [Open the review studio](https://storyparity-cus2bs7tpq-uc.a.run.app) · Reviewer access key required for project data.
 
+[Watch the 2:47 walkthrough](https://github.com/Georgexxe/storyparity/releases/download/v2.0.0/StoryParity-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
+
+![Actual hosted StoryParity evidence player showing an original synthetic demo](demo/studio.png)
+
 StoryParity is a review studio for narrative integrity across localized subtitles, SDH captions, dub transcripts, audio description and derivative edits. It finds bounded story/timing/accessibility divergences, gathers evidence, proposes changes, and requires explicit human approval before applying them.
 
 ## Working workflow
@@ -94,6 +98,8 @@ Live integration runners:
 
 - `scripts/live_smoke.py`: actual Vertex extraction, actual MCP impossible predicate, ADK investigation and semantic evidence.
 - `scripts/live_delivery.py`: original video/audio ingestion, Firestore/media persistence, all five detection classes, live agent repair, MCP verification, export and rollback.
+
+Optional demo regeneration uses `scripts/requirements-demo.txt`, FFmpeg and Google Cloud Text-to-Speech. The drawing/capture helpers target Windows with Arial and Chrome installed; `PLAYWRIGHT_MODULE` can point to an installed Playwright Node module. The supplied master media can be used directly on any supported application host without regenerating it.
 
 See `VALIDATION.md` for measured results and remaining limitations. The release source contains the active implementation; historical simulator files remain preserved separately in the original working copy and are excluded from deployment and release evidence.
 

@@ -25,4 +25,10 @@ Any edited recording must label omitted wait time and synthetic source media. Do
 
 React/TypeScript, FastAPI/Pydantic, Google ADK, Vertex Gemini, Google embeddings, official `mcp-clickhouse`, ClickHouse, Firestore, private Cloud Storage, Secret Manager and Cloud Run. Original demo speech uses Google Cloud Text-to-Speech. MIT license. See README for architecture and `VALIDATION.md` for measured evidence and limits.
 
-Public application, source repository and video links will be filled after publication approval. Staging is IAM-private and also requires the reviewer key.
+Application: [StoryParity review studio](https://storyparity-cus2bs7tpq-uc.a.run.app). Project data requires the private reviewer key.
+
+Source: [Georgexxe/storyparity](https://github.com/Georgexxe/storyparity), MIT licensed.
+
+Public demo video: [StoryParity walkthrough — 2:47](https://github.com/Georgexxe/storyparity/releases/download/v2.0.0/StoryParity-walkthrough.mp4). [Release page](https://github.com/Georgexxe/storyparity/releases/tag/v2.0.0).
+
+The edited walkthrough uses actual hosted application screens and Google Cloud narration. It includes explicit test-reviewer edits and labels omitted wait time. The original demo is loaded in production. Staging remains IAM-private.

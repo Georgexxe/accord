@@ -33,26 +33,28 @@ VM bootstrap emitted `STORYPARITY_CLICKHOUSE_READY_DATABASES_AND_READER_VERIFIED
 Staging application deployed after the main agent's real Vertex/MCP investigation and regression checks:
 
 - URL: `https://storyparity-staging-cus2bs7tpq-uc.a.run.app` (Google IAM authentication required).
-- Current revision: `storyparity-staging-00003-v2k`, ready at 15:08:47 UTC.
-- Current Cloud Build: `5a658ca3-e8e9-4d00-8a96-b05f40452b8d`, SUCCESS, including Trivy's fixable-critical vulnerability gate.
-- Current image digest: `sha256:6560540097a623092af3d5f284bcfd5cde42231511510dcf15aa38a461c47f01`; revision deploys the digest directly.
-- This staging update adds read-only proposal validation for the investigator; production remains on the prior image pending hosted acceptance.
-- Previous rollback revision: `storyparity-staging-00002-jws` (build `79dbba3a-cc00-47ec-814e-18223193cbf9`).
+- Current revision: `storyparity-staging-00004-rdq`, ready at 15:16:36 UTC.
+- Current Cloud Build: `29993769-2a09-4345-9070-da38873722ab`, SUCCESS, including Trivy's fixable-critical vulnerability gate.
+- Current image digest: `sha256:f9eb58ec17e6a38dd5c320ae4ae666ef00dd425aeaca82774dc7faf27d3b0a3e`; revision deploys the digest directly.
+- This staging update adds read-only complete-repair preview validation for the investigator; the same image has passed hosted acceptance and is promoted to production.
+- Previous rollback revision: `storyparity-staging-00003-v2k` (build `5a658ca3-e8e9-4d00-8a96-b05f40452b8d`).
 - Health ready, version 2.0.0; absent reviewer credential rejected with 401; authenticated project read and frontend entry both return 200.
 - Service IAM policy has no public invoker grant.
 
-Full remote product workflow and browser checks remain the main agent's release gate. See `READINESS.md` for stop/restart, release and rollback procedures.
+The main agent confirmed hosted final03 acceptance: six tracks across all five detector classes, seven findings, real ADK proposal, exact approval, live MCP verification with zero remaining findings, six-SRT export, and rollback restoring seven findings and both linked derivatives. See `READINESS.md` for stop/restart, release and rollback procedures.
 
 ## Public production release
 
-After explicit user approval of public app access, final01 was deployed to production:
+After explicit user approval of public app access, accepted final03 was deployed to production:
 
 - Public URL: `https://storyparity-cus2bs7tpq-uc.a.run.app`.
-- Revision: `storyparity-00001-54v`, ready at 15:02:23 UTC.
-- Image digest: `sha256:cc64774e495c1aad5f78948555f18fd4c004fe76b552a3c85354f73778ea7545`.
+- Revision: `storyparity-00002-r2p`, ready at 15:21:15 UTC.
+- Image digest: `sha256:f9eb58ec17e6a38dd5c320ae4ae666ef00dd425aeaca82774dc7faf27d3b0a3e`.
 - Production Firestore collection: `storyparity_projects`; ClickHouse database: `storyparity`.
 - Cloud Run invocation is public; application bearer authentication remains enforced.
 - Without a Google identity token: page 200, health ready 200, private API without reviewer credential 401, private API with reviewer credential 200.
 - No production data was seeded during deployment.
 
 `release.py --public` supports explicitly approved public releases. Omit the flag for IAM-private staging. Releasing production without `--public` makes its invocation private again.
+
+
