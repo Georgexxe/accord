@@ -61,3 +61,5 @@ Production revision: storyparity-00005-s6h. Tested and promoted image digest: sh
 The replacement walkthrough is 116.958 seconds (1:56), 6,284,559 bytes. Full FFmpeg decoding passed with no errors. It uses actual hosted screen recordings, original animation and narrated explanations; shortened waiting time is disclosed.
 
 Walkthrough presentation update: removed the persistent footer and its padding at the user’s request. The clean video is 1440×1000, 116.958 seconds and 6,869,310 bytes; full decoding passed. Media provenance and shortened waiting time remain described in narration and accompanying documentation.
+
+Narration update: the walkthrough now uses en-GB-Chirp3-HD-Charon with a conversational script and natural speaking pace. Runtime 115.499 seconds (1:55), 6,203,341 bytes, 1440×1000; complete decoding passed without errors. The persistent footer remains removed.

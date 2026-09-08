@@ -4,7 +4,7 @@
 
 [Open the review studio](https://storyparity-cus2bs7tpq-uc.a.run.app) · Reviewer access key required for project data.
 
-[Watch the 1:56 walkthrough](https://github.com/Georgexxe/accord/releases/download/v2.2.0/Accord-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
+[Watch the 1:55 walkthrough](https://github.com/Georgexxe/accord/releases/download/v2.2.0/Accord-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
 
 ![Actual hosted Accord evidence player showing an original synthetic demo](demo/studio.png)
 

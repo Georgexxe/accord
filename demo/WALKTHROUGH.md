@@ -1,43 +1,43 @@
 # Accord walkthrough
 
-Actual hosted screen recordings; waiting time shortened; original AI-assisted animation with deliberately introduced test issues.
+Conversational narration using Google Chirp 3 HD Charon, matching the voice used in earlier CivicRight and CutoverProof videos. Actual hosted screen recordings; waiting time shortened; original AI-assisted animation with deliberately introduced test issues.
 
 ## 00-welcome
 
-Meet Accord. Keep the story intact across every version.
+A film can tell one story in English, and a slightly different one in its subtitles. That's the problem Accord helps you catch.
 
 ## 01-sources
 
-This is The Last Lantern, an original animated short made for this demonstration. A courier brings a light to a mountain station, where fourteen passengers are waiting. Here are the subtitles, accessible captions, dub transcript, and linked recap and trailer.
+Here's The Last Lantern, a short we made for this demo. Fourteen passengers are waiting at a station. We've added subtitles, captions, and a couple of shorter edits. Let's see what changed between them.
 
 ## 02-spec
 
-Accord reads the film and prepares story notes. The reviewer checks the passenger count, the warning bell, when the courier introduces herself, and the platform sign. Approved notes become the reference for each version.
+First, we check the story notes. How many passengers are waiting? When do we learn the courier's name? Does the bell matter? Accord suggests these notes from the film, and we check them before using them as a reference.
 
 ## 03-findings
 
-The Spanish subtitle says four passengers instead of fourteen. Accord brings the issue back to the original moment, with the source evidence beside the film.
+Look at this subtitle. It says four passengers, but the original says fourteen. The line from the film is right beside it, so we can check the difference ourselves.
 
 ## 04-defects
 
-That error also appears in the recap and trailer. Other test versions miss the warning bell, reveal the courier’s name early, overlap dialogue with audio description, or cover the platform sign.
+The same mistake has reached the recap and trailer. There are other problems too: a missing bell caption, a name revealed too early, and a subtitle covering the platform sign.
 
 ## 05-proposal
 
-Ask for suggested changes, then watch the difference. Before and After preview the actual caption text, timing and placement on the film. Nothing is applied until the reviewer approves.
+Now let's look at the suggested fix. We can switch between Before and After and see the caption on the film. That makes it much easier to judge whether the change actually works.
 
 ## 05b-editor
 
-Adjust a suggestion with ordinary text and timing fields. Move a caption away from the sign. The connected versions show which files the proposal changes. The reviewer stays in control.
+If something still feels wrong, we can edit it here. Change the wording, adjust when it appears, or move it out of the way. We decide what gets applied.
 
 ## 06-verified
 
-After approval, Accord applies the reviewed changes and checks the updated tracks again. This run has no remaining findings. The corrected versions and review history are ready to download.
+Once we approve, Accord updates the tracks and checks them again. In this run, all seven issues are cleared. The revised files are ready to download.
 
 ## 07-evidence
 
-The investigation uses Gemini, Google ADK and the official ClickHouse MCP server. History retains the evidence and decisions. A separate original lighthouse scene was also tested, alongside clean controls. These are bounded demonstration results.
+The history keeps a record of what was checked and what we approved. Behind that, Gemini investigates using evidence stored in ClickHouse. We also tested a separate lighthouse scene to check the workflow on a different story.
 
 ## 08-rollback
 
-Undo restores the previous versions, including the recap and trailer. This recording uses the actual hosted app, original AI-assisted animation, and deliberately introduced test issues. Waiting time has been shortened. Accord. Keep the story intact.
+And if we need to go back, Undo restores the earlier versions, including the recap and trailer. That's Accord: a way to catch changes to the story, check the fix, and keep the final decision with the reviewer.

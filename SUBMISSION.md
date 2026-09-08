@@ -24,7 +24,7 @@ Application: [Accord review studio](https://storyparity-cus2bs7tpq-uc.a.run.app)
 
 Source: [Georgexxe/accord](https://github.com/Georgexxe/accord), MIT licensed.
 
-Public demo video: [Accord walkthrough — 1:56](https://github.com/Georgexxe/accord/releases/download/v2.2.0/Accord-walkthrough.mp4). [Release page](https://github.com/Georgexxe/accord/releases/tag/v2.2.0).
+Public demo video: [Accord walkthrough — 1:55](https://github.com/Georgexxe/accord/releases/download/v2.2.0/Accord-walkthrough.mp4). [Release page](https://github.com/Georgexxe/accord/releases/tag/v2.2.0).
 
 The edited walkthrough uses actual hosted application screens and Google Cloud narration. It includes explicit test-reviewer edits and labels omitted wait time. The original demo is loaded in production. Staging remains IAM-private.
 
