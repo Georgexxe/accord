@@ -1,6 +1,6 @@
 # Accord walkthrough
 
-Conversational narration using Google Chirp 3 HD Charon, matching the voice used in earlier CivicRight and CutoverProof videos. Actual hosted screen recordings; waiting time shortened; original AI-assisted animation with deliberately introduced test issues.
+Conversational narration using Google Chirp 3 HD Charon, matching the voice used in earlier CivicRight and CutoverProof videos. Actual hosted desktop screenshots and selected screen recordings; waiting time shortened; original AI-assisted animation with deliberately introduced test issues.
 
 ## 00-welcome
 

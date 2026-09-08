@@ -123,3 +123,5 @@ The tool assists professional review. It does not certify accessibility, guarant
 - [Agentic Cinema rules](https://agentic-cinema.devpost.com/rules)
 
 MIT licensed; see `LICENSE`. Original synthetic demo provenance is in `demo/PROVENANCE.md`.
+
+For walkthrough rendering, run `scripts/prepare_video_media.py` before `scripts/render_demo.py`. The renderer uses clean desktop stills and selected motion clips, then checks every decoded frame with `scripts/validate_video.py`. Mobile QA runs separately with `STORYPARITY_MOBILE_CHECK=1`; those runs do not produce release recordings.

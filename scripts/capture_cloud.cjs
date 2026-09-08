@@ -4,8 +4,9 @@ const fs=require('node:fs');
 let browser,page;
 (async()=>{
  const url=process.env.STORYPARITY_URL, phase=process.argv[2];
+ const mobileChecks=process.env.STORYPARITY_MOBILE_CHECK==='1';
  browser=await chromium.launch({headless:true,channel:'chrome'});
- page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,recordVideo:{dir:'runtime/demo-capture/recordings',size:{width:1440,height:1000}}});
+ page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,recordVideo:mobileChecks?undefined:{dir:'runtime/demo-capture/recordings',size:{width:1440,height:1000}}});
  const recordingStarted=Date.now(), clips=[];
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route(url+'/**',route=>route.continue({headers:{...route.request().headers(),'X-Serverless-Authorization':'Bearer '+process.env.STORYPARITY_IDENTITY}}));
@@ -25,10 +26,12 @@ let browser,page;
  async function snap(name){await page.screenshot({path:'runtime/demo-capture/'+name+'.png',fullPage:false});clips.push({name,start:(Date.now()-recordingStarted)/1000});await page.waitForTimeout(6000);}
  if(phase==='before'){
    await page.locator('video').evaluate(v=>{v.currentTime=1;v.play();});await snap('01-sources');await page.locator('video').evaluate(v=>v.pause());
+   if(mobileChecks){
    await page.setViewportSize({width:390,height:844});
    if(await page.evaluate(()=>document.body.scrollWidth)>390)throw new Error('Sources mobile overflow');
    await page.screenshot({path:'runtime/demo-capture/mobile-sources.png',fullPage:true});
    await page.setViewportSize({width:1440,height:1000});
+   }
    await page.getByRole('button',{name:'Story notes',exact:true}).click();await snap('02-spec');
    await page.getByRole('button',{name:'Review',exact:true}).click();
    await page.locator('.finding').filter({hasText:'Spanish subtitles.json'}).filter({hasText:'Expected 14; observed 4'}).getByRole('button',{name:'Review evidence'}).click();
@@ -65,11 +68,14 @@ let browser,page;
  }else{
    await page.getByRole('button',{name:'Review',exact:true}).click();await snap('08-rollback');
  }
+ if(mobileChecks){
  await page.setViewportSize({width:390,height:844});
  const width=await page.evaluate(()=>document.body.scrollWidth);
  if(width>390)throw new Error('Mobile horizontal overflow: '+width);
  await page.screenshot({path:'runtime/demo-capture/mobile-'+phase+'.png',fullPage:true});
+ }
  if(errors.length)throw new Error(JSON.stringify(errors));
+ if(mobileChecks){await browser.close();console.log(JSON.stringify({phase,mobileChecks:true,pageErrors:errors}));return;}
  const recording=await page.video().path();await page.context().close();await browser.close();
  for(const clip of clips){require('node:child_process').execFileSync('ffmpeg',['-y','-v','error','-ss',String(clip.start),'-i',recording,'-t','6','-an','-vf','fps=24','-c:v','libx264','-preset','fast','-threads','2','-crf','23','runtime/demo-capture/'+clip.name+'-screen.mp4']);}
  console.log(JSON.stringify({phase,actualHostedUI:true,pageErrors:errors}));
