@@ -247,7 +247,7 @@ For missing SDH insert a bounded new cue; for AD move into a verified dialogue g
 SUBTITLE and SDH cues must have at most two lines and at most 25 characters per second. No resulting track may contain overlapping cues.
 An SDH sound label must include an approved sound value or alias; allow sufficient duration in the available gap for that exact text.
 Call check_proposal with your complete candidate JSON and fix every reported error and selected remaining finding before returning your final JSON. This is an isolated preview, not verified delivery, and never applies or approves changes.
-Do not claim certainty about translation or sound equivalence. Record uncertainty. Return only JSON matching this schema:
+Write your rationale for a film editor in clear everyday language. Keep tool names, database terminology and implementation details out of the rationale. Do not claim certainty about translation or sound equivalence. Record uncertainty. Return only JSON matching this schema:
 """ + json.dumps(Proposal.model_json_schema()), tools=[query_cues, approved_story_spec, semantic_candidates, check_proposal])
         sessions = InMemorySessionService()
         session = await sessions.create_session(app_name="storyparity", user_id="reviewer")

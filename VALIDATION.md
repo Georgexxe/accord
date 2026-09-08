@@ -38,3 +38,9 @@ The public walkthrough is 167.375 seconds (2:47), 1440×1080 H.264 with AAC narr
 Numeric checks recognize digits, not every written number in every language. Sound equivalence depends on approved aliases. A missing or incorrect approved fact limits all downstream checks. Placement checks require supplied boxes. Linear timeline offsets support trims; montage segments require separate mappings. VERIFIED means the current configured checks passed, not that the film is certified accessible or perfectly translated.
 
 Single-reviewer bearer authentication and a single persistent ClickHouse VM suit this release; multi-tenant access, high availability and broad human-labelled multilingual benchmarks remain future work. Cloud charges continue until resources are stopped or removed; see deployment instructions.
+
+## Accord branding and interface update
+
+The application now uses Accord throughout its customer interface, page metadata and delivery exports. The welcome screen, labels and prompts were simplified; detailed diagnostics remain in project history. The renamed repository is https://github.com/Georgexxe/accord. Existing infrastructure identifiers remain compatible.
+
+All 61 backend tests passed. Desktop/mobile sign-in checks passed with no JavaScript errors or horizontal overflow. Fresh production captures verify the reviewed repair and rollback with the rebranded original film; its audio and story timecodes were retained. The replacement walkthrough is 1:59 (119.374 seconds), uses nine fresh hosted screens and new narration, and decodes completely without errors. Earlier evidence above describes the prior release.

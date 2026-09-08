@@ -58,3 +58,15 @@ After explicit user approval of public app access, accepted final03 was deployed
 `release.py --public` supports explicitly approved public releases. Omit the flag for IAM-private staging. Releasing production without `--public` makes its invocation private again.
 
 
+
+## Accord interface release — 8 September 2026
+
+The customer-facing product is now Accord. Existing Cloud Run URLs, storage namespaces and access codes remain compatible.
+
+- Production revision: `storyparity-00004-5dq`.
+- Staging revision: `storyparity-staging-00006-26r`.
+- Immutable image: `sha256:2b55c28a45f695a292be2c24f0efc0d2c635671c85589b0bd77d185751537d43`.
+- Cloud build and scan passed. Staging health, frontend, authenticated reads and missing-token rejection passed.
+- All 61 backend tests passed. Fresh production desktop/mobile capture completed with no JavaScript errors or horizontal page overflow, including the Sources table.
+- The reviewed repair passed configured checks; undo restored seven original findings. The demo film title treatment was updated while preserving its audio and story timecodes.
+- Public source: https://github.com/Georgexxe/accord.

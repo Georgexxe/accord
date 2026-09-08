@@ -30,6 +30,10 @@ def capture(phase):subprocess.run(['node','scripts/capture_cloud.cjs',phase],che
 p=call('get',base)
 if p['proposals'] and p['proposals'][-1]['status']=='APPLIED':
     p=call('post',base+f"/proposals/{p['proposals'][-1]['id']}/rollback",json={'revision':p['revision']})
+if os.getenv('ACCORD_REFRESH_MEDIA')=='1':
+    p=call('post',base+'/media',data={'revision':p['revision']},files={'file':('master.mp4',Path('demo/master.mp4').read_bytes(),'video/mp4')})
+    # The title treatment changed; the original audio, timecodes and story facts are unchanged.
+    p=call('post',base+'/spec/approve',json={'revision':p['revision'],'digest':p['spec_digest']})
 if not p['snapshot_id']:
     p=call('post',base+'/scan',json={'revision':p['revision']})
 capture('before')
@@ -44,7 +48,7 @@ for change in proposal['changes']:
         change['replacement']['start']=20.0;change['replacement']['end']=21.0
     if (change['asset_id'],change['cue_id']) in clues and change['replacement']:
         change['replacement']['box']={'x':.3,'y':.1,'width':.4,'height':.15}
-proposal['rationale']+=' Test reviewer aligned the sound caption with the approved alias and placed the subtitle above the source clue.'
+proposal['rationale']+=' Reviewed the sound caption and moved the subtitle above the code.'
 proposal.pop('approval_digest',None)
 p=call('put',base+f"/proposals/{proposal['id']}",json={'revision':p['revision'],'proposal':proposal})
 proposal=p['proposals'][-1];capture('proposal')
@@ -54,4 +58,4 @@ capture('after')
 Path('runtime/demo-capture/verified.json').write_text(json.dumps(p,indent=2),encoding='utf-8')
 p=call('post',base+f"/proposals/{proposal['id']}/rollback",json={'revision':p['revision']})
 assert p['findings'];capture('rollback')
-print(json.dumps({'status':'PASS','actualHostedScreens':8,'rollbackFindings':len(p['findings'])}))
+print(json.dumps({'status':'PASS','actualHostedScreens':9,'rollbackFindings':len(p['findings'])}))

@@ -1,35 +1,39 @@
-# Walkthrough transcript
+# Accord walkthrough
 
-Actual hosted UI; edited waiting time; original synthetic source scene. Narration generated with Google Cloud Text-to-Speech.
+Actual hosted screens; waiting time shortened; original fictional scene with deliberately introduced issues.
+
+## 00-welcome
+
+Meet Accord. Keep the story intact across every version.
 
 ## 01-sources
 
-Every audience should get the same story. StoryParity reviews what changed between a master and its localized and accessible versions. This original synthetic scene has six tracks: Spanish subtitles, English captions, audio description, a dub transcript, and linked Spanish recap and trailer versions.
+Start with your original film and add the versions you want to review. Here we have Spanish subtitles, accessible captions, audio description, a dub transcript, and two shorter edits linked to the Spanish version.
 
 ## 02-spec
 
-Gemini on Google Cloud analyzes the master video, audio, and script. Its candidate specification includes story facts, identity reveals, important sounds, dialogue intervals, and on-screen clues. A reviewer checks and edits those facts before approving the exact version. In this acceptance run, measured source annotations corrected dialogue timing.
+Accord reads the film and prepares story notes: important facts, names, sounds, dialogue and visual clues. Review these notes against your original, make any adjustments, then approve them. They become the reference for your versions.
 
 ## 03-findings
 
-The approved specification drives bounded checks against actual versioned tracks. The evidence player links each finding to the master timeline and previews the selected subtitle text and placement. These are review candidates with visible evidence, not a general claim that artificial intelligence can certify a translation.
+Review brings each issue back to the moment it matters. Here, the original says fourteen survivors, but the Spanish recap says four. Play the scene and see the subtitle alongside the original evidence.
 
 ## 04-defects
 
-Here, fourteen survivors became four, including in the linked recap and trailer. A name appears too early. Captions omit the critical door-lock sound. Audio description overlaps dialogue, and a subtitle covers the access code. All five supported defect classes are present in this deliberately defective test scene.
+The same problem has carried into the trailer. Elsewhere, a name appears too early, captions miss a door-lock sound, audio description interrupts dialogue, and a subtitle covers an important code. Accord brings these issues together so they are easier to work through.
 
 ## 05-proposal
 
-A real Google ADK investigator reads approved evidence and current versions through the official ClickHouse MCP server. Google embeddings rank related cues. The agent proposes exact multi-asset changes. In this demonstration, the test reviewer corrected caption wording and placement before approving. The model cannot authorize its own repair.
+Choose the issues you want to address and ask for suggested changes. Compare the original and proposed versions side by side. You can edit or reject a suggestion before applying it. In this demonstration, the reviewer adjusts the sound caption and subtitle placement before approving.
 
 ## 06-verified
 
-After approval, the server checks the specification, exact cue identifiers, base hashes, timing, and placement. It snapshots affected assets, applies the changes, reindexes them, and reads them back through MCP. Verified means the current configured checks passed. The delivery export includes corrected tracks and a versioned report.
+Accord applies the approved changes and checks the updated versions again. When those checks pass, your versions are ready to download together with their review history.
 
 ## 07-evidence
 
-The activity view preserves approval decisions, actual tool queries, and measured model usage. Cloud state is durable in Firestore and private Cloud Storage. Application data requires the reviewer key. The source, original test inputs, and reproducible validation runners are published with the release.
+Project history keeps the decisions and changes together. You can revisit what happened and open the supporting details when you need them. Gemini, Google ADK and ClickHouse support the review behind the scenes.
 
 ## 08-rollback
 
-Rollback checks for later edits before restoring every affected asset and repeating the checks. The original findings return, including the linked derivatives. This edited walkthrough shows real hosted application states; waiting time is omitted. AI investigates. People approve. Checks verify.
+Need to go back? Undo the changes to restore the previous versions, including the linked recap and trailer. This walkthrough uses an original fictional scene with deliberately introduced issues. Waiting time has been shortened. Accord. Keep the story intact.

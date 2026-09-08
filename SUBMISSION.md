@@ -1,10 +1,10 @@
-# StoryParity
+# Accord
 
-**Every audience gets the same story.**
+**Keep the story intact across every version.**
 
 A localized subtitle can turn fourteen survivors into four. A trailer can reveal an identity too early. Missing sound captions, overlapping audio description or a subtitle covering a vital code can change the story another audience experiences. These defects travel into downstream edits and are difficult to audit as isolated files.
 
-StoryParity ties versions to a human-approved, timecoded specification extracted from the master by Vertex Gemini. It indexes tracks and lineage in ClickHouse, gathers evidence through the official ClickHouse MCP server, and uses a Google ADK investigator to propose bounded repairs. Google multilingual embeddings rank candidate evidence. The reviewer owns the exact change; the application applies it only against the approved specification and unchanged base hashes, then reindexes and verifies. Rollback restores all affected versions and export includes the audit trail.
+Accord ties versions to a human-approved, timecoded specification extracted from the master by Vertex Gemini. It indexes tracks and lineage in ClickHouse, gathers evidence through the official ClickHouse MCP server, and uses a Google ADK investigator to propose bounded repairs. Google multilingual embeddings rank candidate evidence. The reviewer owns the exact change; the application applies it only against the approved specification and unchanged base hashes, then reindexes and verifies. Rollback restores all affected versions and export includes the audit trail.
 
 ## Demonstration
 
@@ -25,10 +25,10 @@ Any edited recording must label omitted wait time and synthetic source media. Do
 
 React/TypeScript, FastAPI/Pydantic, Google ADK, Vertex Gemini, Google embeddings, official `mcp-clickhouse`, ClickHouse, Firestore, private Cloud Storage, Secret Manager and Cloud Run. Original demo speech uses Google Cloud Text-to-Speech. MIT license. See README for architecture and `VALIDATION.md` for measured evidence and limits.
 
-Application: [StoryParity review studio](https://storyparity-cus2bs7tpq-uc.a.run.app). Project data requires the private reviewer key.
+Application: [Accord review studio](https://storyparity-cus2bs7tpq-uc.a.run.app). Project data requires the private reviewer key.
 
-Source: [Georgexxe/storyparity](https://github.com/Georgexxe/storyparity), MIT licensed.
+Source: [Georgexxe/accord](https://github.com/Georgexxe/accord), MIT licensed.
 
-Public demo video: [StoryParity walkthrough — 2:47](https://github.com/Georgexxe/storyparity/releases/download/v2.0.0/StoryParity-walkthrough.mp4). [Release page](https://github.com/Georgexxe/storyparity/releases/tag/v2.0.0).
+Public demo video: [Accord walkthrough — 1:59](https://github.com/Georgexxe/accord/releases/download/v2.1.0/Accord-walkthrough.mp4). [Release page](https://github.com/Georgexxe/accord/releases/tag/v2.1.0).
 
 The edited walkthrough uses actual hosted application screens and Google Cloud narration. It includes explicit test-reviewer edits and labels omitted wait time. The original demo is loaded in production. Staging remains IAM-private.

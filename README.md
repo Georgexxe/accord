@@ -1,14 +1,14 @@
-# StoryParity
+# Accord
 
-**Every audience gets the same story.**
+**Keep the story intact across every version.**
 
 [Open the review studio](https://storyparity-cus2bs7tpq-uc.a.run.app) · Reviewer access key required for project data.
 
-[Watch the 2:47 walkthrough](https://github.com/Georgexxe/storyparity/releases/download/v2.0.0/StoryParity-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
+[Watch the 1:59 walkthrough](https://github.com/Georgexxe/accord/releases/download/v2.1.0/Accord-walkthrough.mp4) · [Transcript](demo/WALKTHROUGH.md)
 
-![Actual hosted StoryParity evidence player showing an original synthetic demo](demo/studio.png)
+![Actual hosted Accord evidence player showing an original synthetic demo](demo/studio.png)
 
-StoryParity is a review studio for narrative integrity across localized subtitles, SDH captions, dub transcripts, audio description and derivative edits. It finds bounded story/timing/accessibility divergences, gathers evidence, proposes changes, and requires explicit human approval before applying them.
+Accord is a review studio for narrative integrity across localized subtitles, SDH captions, dub transcripts, audio description and derivative edits. It finds bounded story/timing/accessibility divergences, gathers evidence, proposes changes, and requires explicit human approval before applying them.
 
 ## Working workflow
 

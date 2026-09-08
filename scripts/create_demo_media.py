@@ -60,7 +60,7 @@ for frame in range(duration*fps):
     lamp=(162,198,116) if t<20 else (237,115,88)
     draw.rectangle((595,150,685,164),fill=lamp)
     draw.text((60,42),'PROTOCOL KEPLER-9',font=font(25),fill=(192,216,213))
-    draw.text((60,79),'Original synthetic scene / StoryParity evaluation input',font=font(15),fill=(109,140,146))
+    draw.text((60,79),'Original synthetic scene / Accord evaluation input',font=font(15),fill=(109,140,146))
     draw.text((1110,45),f'{t:05.1f}s',font=font(20),fill=(144,169,165))
     # Anonymous silhouette until the intentional reveal.
     draw.ellipse((165,278,215,328),fill=(109,129,139));draw.rounded_rectangle((151,321,230,495),radius=20,fill=(67,86,100))
@@ -97,6 +97,6 @@ sdh=[cue(str(i+1),x['start'],max(x['end'],x['start']+3),x['text']) for i,x in en
 ad=[cue('1',40.5,44,'She reaches toward the locked door.')]
 dub=[cue(str(i+1),x['start'],max(x['end'],x['start']+3),x['text']) for i,x in enumerate(spoken)]
 for name,data in [('spanish-errors.json',es),('english-sdh-missing-lock.json',sdh),('english-ad-overlap.json',ad),('english-dub-control.json',dub)]: (out/name).write_text(json.dumps(data,indent=2),encoding='utf-8')
-(out/'PROVENANCE.md').write_text('# Original StoryParity evaluation scene\n\nHuman-authored fictional script and programmatically drawn animated scene. Speech generated with Google Cloud Text-to-Speech en-US-Standard-D; door-lock sound synthesized procedurally. No third-party movie footage, stock sound, or non-Google AI service.\n\nTracks deliberately contain known defects. These are test inputs, not evidence of system accuracy. Master speech intervals are measured from generated waveforms in speech-intervals.json.\n',encoding='utf-8')
+(out/'PROVENANCE.md').write_text('# Original Accord evaluation scene\n\nHuman-authored fictional script and programmatically drawn animated scene. Speech generated with Google Cloud Text-to-Speech en-US-Standard-D; door-lock sound synthesized procedurally. No third-party movie footage, stock sound, or non-Google AI service.\n\nTracks deliberately contain known defects. These are test inputs, not evidence of system accuracy. Master speech intervals are measured from generated waveforms in speech-intervals.json.\n',encoding='utf-8')
 (out/'speech-intervals.json').write_text(json.dumps(spoken,indent=2),encoding='utf-8')
 print(json.dumps({'status':'created','master_bytes':(out/'master.mp4').stat().st_size,'seconds':duration,'speech_intervals':spoken}))

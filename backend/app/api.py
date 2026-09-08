@@ -1,4 +1,4 @@
-"""Authenticated, persistent StoryParity application."""
+"""Authenticated, persistent Accord application."""
 import asyncio
 import io
 import json
@@ -22,7 +22,7 @@ from .integrations import ClickHouse, Gemini
 from .store import Conflict, MediaStore, Store
 from .validators.parsers import parse_srt, parse_vtt, seconds_to_srt_timecode
 
-app = FastAPI(title="StoryParity", version="2.0.0")
+app = FastAPI(title="Accord", version="2.0.0")
 store, media_store, analytics, gemini = Store(), MediaStore(), ClickHouse(), Gemini()
 locks = defaultdict(asyncio.Lock)
 bearer = HTTPBearer(auto_error=False)
@@ -102,7 +102,7 @@ async def verify_and_save(project):
 
 @app.get("/api/health")
 async def health():
-    return {"service":"StoryParity","status":"ready","version":"2.0.0"}
+    return {"service":"Accord","status":"ready","version":"2.0.0"}
 @app.get("/api/session")
 async def session(actor: Auth):
     return {"actor":actor,"google_configured":bool(os.getenv("GOOGLE_CLOUD_PROJECT")),"clickhouse_configured":bool(os.getenv("CLICKHOUSE_HOST")),"store":"firestore" if store.cloud else "sqlite"}
@@ -262,12 +262,12 @@ async def export(project_id:str,actor:Auth):
     project=load(project_id); buffer=io.BytesIO()
     with zipfile.ZipFile(buffer,"w",zipfile.ZIP_DEFLATED) as archive:
         archive.writestr("delivery-report.json",json.dumps(public(project),ensure_ascii=False,indent=2))
-        archive.writestr("README.txt",f"StoryParity delivery snapshot\nStatus: {project.status}\nUnresolved findings: {len(project.findings)}\nTriage evidence, not accessibility certification. JSON tracks preserve placement; SRT does not.\n")
+        archive.writestr("README.txt",f"Accord delivery snapshot\nStatus: {project.status}\nUnresolved findings: {len(project.findings)}\nTriage evidence, not accessibility certification. JSON tracks preserve placement; SRT does not.\n")
         for asset in project.assets:
             archive.writestr(f"tracks/{asset.id}.json",asset.model_dump_json(indent=2))
             srt="\n\n".join(f"{i}\n{seconds_to_srt_timecode(c.start)} --> {seconds_to_srt_timecode(c.end)}\n{c.text}" for i,c in enumerate(sorted(asset.cues,key=lambda c:c.start),1))
             archive.writestr(f"tracks/{asset.id}.srt",srt+"\n")
-    return Response(buffer.getvalue(),media_type="application/zip",headers={"Content-Disposition":f'attachment; filename="storyparity-{project.id}.zip"'})
+    return Response(buffer.getvalue(),media_type="application/zip",headers={"Content-Disposition":f'attachment; filename="accord-{project.id}.zip"'})
 
 static=Path(os.getenv("STATIC_DIR",str(Path(__file__).resolve().parents[2]/"frontend"/"dist")))
 if static.is_dir(): app.mount("/",StaticFiles(directory=static,html=True),name="web")
